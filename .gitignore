@@ -1,0 +1,75 @@
+# Spring Boot 项目通用忽略规则
+
+# 编译输出目录
+/target/
+/build/
+
+# 依赖缓存目录
+/.mvn/
+/mvnw
+/mvnw.cmd
+/.mvn/wrapper/maven-wrapper.jar
+
+# IDE 配置文件
+.idea/
+*.iml
+*.iws
+.idea_modules/
+
+# IntelliJ IDEA 特定配置
+/.idea/codeStyles/
+/.idea/libraries/
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/usage.statistics.xml
+/.idea/vcs.xml
+/.idea/jsLibraryMappings.xml
+
+# VS Code 特定配置
+.vscode/
+
+# 日志文件
+*.log
+logs/
+
+# 环境配置文件（敏感信息）
+application-dev.properties
+application-test.properties
+application-prod.properties
+application.yml
+application-dev.yml
+application-test.yml
+application-prod.yml
+
+# 临时文件
+*.orig
+*.bak
+*.swp
+*.tmp
+
+# 本地构建配置
+/.m2/
+/.gradle/
+gradle/
+build/
+
+# 数据库文件
+data/
+*.h2.db
+
+# 生成的代码
+generated/
+
+# 特定工具配置
+/.editorconfig
+/.sonar/
+
+# 个人设置
+/.settings/
+/.classpath
+/.project
+
+# 自定义排除
+/custom-exclude/
