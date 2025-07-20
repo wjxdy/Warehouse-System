@@ -4,11 +4,18 @@ import com.itheima.mapper.UserMapper;
 import com.itheima.pojo.PageQuery;
 import com.itheima.pojo.PageResult;
 import com.itheima.pojo.User;
+import com.itheima.pojo.UserLoginInfo;
+import com.itheima.util.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -41,6 +48,29 @@ public class UserServiceImpl implements UserService {
         pageResult.setData(list);
 
         return pageResult;
+
+    }
+
+    @Override
+    public UserLoginInfo login(User user) throws InvocationTargetException, IllegalAccessException {
+
+       User userInfo=userMapper.login(user);
+        if (userInfo!=null){
+            UserLoginInfo userLoginInfo=new UserLoginInfo();
+
+            BeanUtils.copyProperties(userLoginInfo,userInfo);
+            Map<String, Object> payload =new HashMap<>();
+            payload.put("userName",userInfo.getUsername());
+            payload.put("name",userInfo.getName());
+            String token= JwtUtils.generateJwt(payload);
+            userLoginInfo.setToken(token);
+            return userLoginInfo;
+        }else {
+            return null;
+
+        }
+
+
 
     }
 }

@@ -19,5 +19,8 @@ public class User {
 
     private LocalDateTime createTime;
 
+    private String username;
+
+    private String password;
 
 }
