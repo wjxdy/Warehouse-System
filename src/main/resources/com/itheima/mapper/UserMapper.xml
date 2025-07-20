@@ -4,5 +4,28 @@
 <mapper namespace="com.itheima.mapper.UserMapper">
 
 
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from user
+        <where>
+        <if test="name !=null and name!=''">
+            and name like concat ('%',#{name},'%')
+        </if>
+        <if test="gender!=null">
+            and gender=#{gender}
+        </if>
+        </where>
 
+    </select>
+    <select id="list" parameterType="com.itheima.pojo.PageQuery" resultType="com.itheima.pojo.User">
+        SELECT * FROM user
+        <where>
+            <if test="t.name!=null and t.name!=''">
+                and name like concat ('%',#{t.name},'%')
+            </if>
+            <if test="t.gender!=null">
+                and gender=#{t.gender}
+            </if>
+        </where>
+            limit #{index},#{pageSize}
+    </select>
 </mapper>
