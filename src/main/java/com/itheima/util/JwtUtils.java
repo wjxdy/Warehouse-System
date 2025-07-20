@@ -31,4 +31,17 @@ public class JwtUtils {
                 .parseClaimsJws(jwt)
                 .getBody();
     }
+
+    public static boolean verfiy(String token){
+
+        try {
+            parseJwt(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+
+
+    }
+
 }
