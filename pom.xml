@@ -14,6 +14,10 @@
     <groupId>com.itheima</groupId>
     <artifactId>Warehouse-Systrm</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>nursing-platfrom</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
@@ -96,7 +100,20 @@
 
 
 
+
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.3.13</version> <!-- 确保与你使用的版本一致 -->
+                <configuration>
+                    <mainClass>com.itheima.DemoApplication.java</mainClass> <!-- 替换为实际主类路径 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
