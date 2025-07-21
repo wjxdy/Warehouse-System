@@ -32,7 +32,7 @@ public class JwtUtils {
                 .getBody();
     }
 
-    public static boolean verfiy(String token){
+    public static boolean verify(String token){
 
         try {
             parseJwt(token);

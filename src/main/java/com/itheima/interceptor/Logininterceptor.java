@@ -18,11 +18,12 @@ public class Logininterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String token = request.getHeader("token");
+        log.info("请求被拦截，token的值为: {}", token);
 
-        if (Objects.isNull(token)||JwtUtils.verfiy(token)){
+        if (token==null||!JwtUtils.verify(token)){
 
             response.setStatus(401);
-            log.info("请求被拦截，亲求投食",token);
+
             return false;
         }
         return true;
