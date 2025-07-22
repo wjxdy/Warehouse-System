@@ -32,7 +32,7 @@ public class NursingProjectcontroller {
 
 
             return pageNurList;
-//
+//1
 //        } catch (Exception e) {
 //
 //            return new Result(401,null,"请求有问题");
